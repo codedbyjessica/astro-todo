@@ -40,15 +40,24 @@ const ListForm = () => {
         }
     })
 
+    const widthStyle = "w-[300px]"
+
     return (
-        <div>
-            <form onSubmit={e => onSubmit(e)}>
-                <input ref={inputRef} type="text" />
+        <div className="text-center">
+            <form onSubmit={e => onSubmit(e)} className="my-4">
+                <input ref={inputRef} type="text" placeholder="type in your todo item and press enter" className={"rounded-2xl px-6 py-2 " + widthStyle} />
             </form>
-            <ol>
-                {list.map((item, i) => <li key={i} >{item} <button onClick={() => removeItem(i)}>x</button></li>)}
+            <ol className={"text-left mx-auto p-6 rounded-2xl min-h-[50vh] bg-white " + widthStyle}>
+                {list.map((item, i) => {
+                    return (
+                        <li key={i} className="flex justify-between border-b-2 border-darkgrey pb-2 mb-2 last-of-type:border-b-0 last-of-type:mb-0 last-of-type:pb-0">
+                            <div>{item}</div>
+                            <button className="px-[8px]" onClick={() => removeItem(i)}>✖</button>
+                        </li>
+                    )
+                })}
             </ol>
-            {list.length > 0 && <button onClick={() => removeAll()}>Remove All</button> }
+            {list.length > 0 && <button className={"mt-4 " + widthStyle} onClick={() => removeAll()}>Remove All</button> }
         </div>
     )
 }

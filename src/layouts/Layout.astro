@@ -1,5 +1,6 @@
 ---
 import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 interface Props {
 	title: string;
@@ -23,22 +24,25 @@ const { title } = Astro.props;
 		<div id="container">
 			<slot />
 		</div>
+		<Footer />
 	</body>
 </html>
 <style is:global>
 	html {
 		font-family: Helvetica, Arial, sans-serif, sans-serif;
-		background: #AAA;
-
 		padding: 16px;
+		background: rgb(148,38,196);
+		background: linear-gradient(45deg, rgba(148,38,196,1) 0%, rgba(76,99,209,1) 35%, rgba(0,255,199,1) 100%);
+		min-height: 100vh;
+		font-size: 14px;
 	}
-	#container {
-		max-width: 960px;
-		margin: 0 auto;
-	}
-	header {
-		max-width: 960px;
-		margin: 0 auto;
+
+	button {
+		background-color: rgb(192, 226, 220);
+		border-radius: 16px;
+		font-size: 12px;
+		padding: 4px 12px;
+		border: 1px solid white;
 	}
 	code {
 		font-family:
